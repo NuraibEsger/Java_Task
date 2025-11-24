@@ -1,66 +1,51 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-    int age = 25;
-    double price = 19.99;
-    char initial = 'A';
-    boolean isStudent = true;
+    // ------ Task 1 ------
+    Car myCar = new Car();
+    myCar.brand = "Toyota";
+    myCar.model = "Camry";
+    myCar.year = 2000;
+    System.out.println("Car: " + myCar.brand + " " + myCar.model + " (" + myCar.year + ")");
 
-    System.out.println("Age: " + age);
-    System.out.println("Price: " + price);
-    System.out.println("Initial: " + initial);
-    System.out.println("Is Student: " + isStudent);
+    // ------ Task 2 ------
+    Student s1 = new Student("Fuad", 20);
+    Student s2 = new Student("Ferid", 22);
+    s1.DisplayInfo();
+    s2.DisplayInfo();
 
-    System.out.println("--------------------------------");
+    // ------ Task 3 ------
+    Book b1 = new Book("The Hobbit", "J.R.R. Tolkien", 15.99);
+    Book b2 = new Book("1984", "George Orwell");
+    Book b3 = new Book();
 
-    byte smallNumber = 100;
-    short mediumNumber = 32000;
-    int regularNumber = 100000;
-    long largeNumber = 123456789L;
-    float decimalNumber = 45.75f;
-    double preciseNumber = 100.3456;
+    System.out.println(b1.getDetails());
+    System.out.println(b2.getDetails());
+    System.out.println(b3.getDetails());
 
-    System.out.println("Byte: " + smallNumber);
-    System.out.println("Short: " + mediumNumber);
-    System.out.println("Int: " + regularNumber);
-    System.out.println("Long: " + largeNumber);
-    System.out.println("Float: " + decimalNumber);
-    System.out.println("Double: " + preciseNumber);
+    // ------ Task 4 ------
+    Person p = new Person();
+    p.setName("Nuraib Asgarov");
+    p.setHeight(1.85);
+    p.printInfo();
 
-    System.out.println("--------------------------------");
+    // ------ Task 5 ------
+    Engine v8 = new Engine(450);
+    MotorVehicle sportsCar = new MotorVehicle(v8);
+    sportsCar.startCar();
 
-    float result1 = age + decimalNumber;             // int + float
-    double result2 = mediumNumber * preciseNumber;   // short * double
-    double result3 = largeNumber / 1000.0;           // long / double
+    // ------ Task 6 ------
+    Rectangle rectangle = new Rectangle(5.0, 3.7);
+    System.out.println("Area " + rectangle.getArea());
+    System.out.println("Perimeter " + rectangle.getPerimeter());
 
-    System.out.println("Result of int + float: " + result1);
-    System.out.println("Result of short * double: " + result2);
-    System.out.println("Result of long / double: " + result3);
+    // ------ Task 7 ------
+    Address addr1 = new Address("Kuce", "seher", "12313");
+    Address addr2 = new Address("Kuce1", "seher4", "16313");
 
-    System.out.println("--------------------------------");
+    Employee emp1 = new Employee("Sarah", 1245.2, addr1);
+    Employee emp2 = new Employee("ALi", 2245.2, addr2);
 
-    String fullName = "John Anderson";
-    System.out.println("Full Name: " + fullName);
-
-    System.out.println("--------------------------------");
-
-    double originalValue = 12.99;
-    int castedValue = (int) originalValue;
-
-    System.out.println("Original double: " + originalValue);
-    System.out.println("Casted int: " + castedValue);
-
-    System.out.println("--------------------------------");
-
-    char letter = 'Z';
-    System.out.println("Character: " + letter);
-    System.out.println("ASCII value: " + (int) letter);
-
-    System.out.println("--------------------------------");
-
-    boolean isAdult = true;
-    boolean hasDrivingLicense = false;
-
-    System.out.println("Is Adult: " + isAdult);
-    System.out.println("Has Driving License: " + hasDrivingLicense);
+    emp1.showEmployeeDetails();
+    emp2.showEmployeeDetails();
 }
