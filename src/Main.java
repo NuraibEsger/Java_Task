@@ -1,51 +1,85 @@
+import task1.Book;
+import task1.Library;
+import task2.Animal;
+import task2.Elephant;
+import task2.Lion;
+import task2.Monkey;
+import task3.Product;
+import task3.ShoppingCart;
+import task4.BankAccount;
+import task4.CheckingAccount;
+import task4.SavingsAccount;
+import task5.GraduateStudent;
+import task5.Student;
+import task5.UndergraduateStudent;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-    // ------ Task 1 ------
-    Car myCar = new Car();
-    myCar.brand = "Toyota";
-    myCar.model = "Camry";
-    myCar.year = 2000;
-    System.out.println("Car: " + myCar.brand + " " + myCar.model + " (" + myCar.year + ")");
+    // Task 1
+    Library myLibrary = new Library(5);
 
-    // ------ Task 2 ------
-    Student s1 = new Student("Fuad", 20);
-    Student s2 = new Student("Ferid", 22);
-    s1.DisplayInfo();
-    s2.DisplayInfo();
+    Book b1 = new Book("title 1", "Nuraib", 1866);
+    Book b2 = new Book("title 2", "Viktor", 1862);
+    Book b3 = new Book("title 3", "jane", 1988);
 
-    // ------ Task 3 ------
-    Book b1 = new Book("The Hobbit", "J.R.R. Tolkien", 15.99);
-    Book b2 = new Book("1984", "George Orwell");
-    Book b3 = new Book();
+    myLibrary.addBook(b1);
+    myLibrary.addBook(b2);
+    myLibrary.addBook(b3);
 
-    System.out.println(b1.getDetails());
-    System.out.println(b2.getDetails());
-    System.out.println(b3.getDetails());
+    myLibrary.showAvailableBooks();
+    b2.borrow();
+    myLibrary.showAvailableBooks();
+    b2.returnBook();
+    myLibrary.showAvailableBooks();
 
-    // ------ Task 4 ------
-    Person p = new Person();
-    p.setName("Nuraib Asgarov");
-    p.setHeight(1.85);
-    p.printInfo();
 
-    // ------ Task 5 ------
-    Engine v8 = new Engine(450);
-    MotorVehicle sportsCar = new MotorVehicle(v8);
-    sportsCar.startCar();
 
-    // ------ Task 6 ------
-    Rectangle rectangle = new Rectangle(5.0, 3.7);
-    System.out.println("Area " + rectangle.getArea());
-    System.out.println("Perimeter " + rectangle.getPerimeter());
+    // Task 2
+    Animal lion = new Lion();
+    Animal elephant = new Elephant();
+    Animal monkey = new Monkey();
 
-    // ------ Task 7 ------
-    Address addr1 = new Address("Kuce", "seher", "12313");
-    Address addr2 = new Address("Kuce1", "seher4", "16313");
+    lion.makeSound();
+    elephant.makeSound();
+    monkey.makeSound();
 
-    Employee emp1 = new Employee("Sarah", 1245.2, addr1);
-    Employee emp2 = new Employee("ALi", 2245.2, addr2);
 
-    emp1.showEmployeeDetails();
-    emp2.showEmployeeDetails();
+
+    // Task 3
+    Product p1 = new Product("Laptop", 1000.0);
+    Product p2 = new Product("Mouse", 25.50);
+    Product p3 = new Product("Keyboard", 50.0);
+
+    ShoppingCart cart = new ShoppingCart(10);
+
+    cart.addItem(p1, 1);
+    cart.addItem(p2, 2);
+    cart.showCart();
+    cart.removeItem("Mouse");
+    cart.addItem(p3, 1);
+    cart.showCart();
+
+
+
+    // Task 4
+    BankAccount[] accounts = new BankAccount[2];
+
+    accounts[0] = new SavingsAccount(100);
+    accounts[1] = new CheckingAccount(200);
+
+    for (BankAccount account : accounts) {
+        account.withdraw(200);
+    }
+
+
+    // Task 5
+    Student[] students = new Student[3];
+    students[0] = new UndergraduateStudent("Ali", 85);
+    students[1] = new GraduateStudent("Veli", 85, 10);
+    students[2] = new GraduateStudent("Ferid", 90, 5);
+
+    for (Student s : students) {
+        System.out.println(s.getName() + ": " + s.getFinalGrade());
+    }
 }
