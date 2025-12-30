@@ -44,6 +44,22 @@ void main() {
         System.out.println(e.getMessage());
         System.out.println(e.getClass().getName());
     }
+
+    // Task 5
+    try {
+        int a = 10;
+        int b = 0;
+
+        String text = null;
+        System.out.println(text.length());
+
+    } catch (ArithmeticException e) {
+        System.out.println(e.getMessage());
+    } catch (NullPointerException e) {
+        System.out.println(e.getMessage());
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
 }
 
 private int DivideByZero(int a, int b) {
