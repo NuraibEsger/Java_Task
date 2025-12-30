@@ -25,6 +25,15 @@ void main() {
     } catch(ArrayIndexOutOfBoundsException e){
         System.out.println(e.getMessage());
     }
+
+    // Task 3
+    String s1 = "12";
+    try{
+        var a = Integer.parseInt(s1);
+        System.out.println(a);
+    } catch(NumberFormatException e){
+        System.out.println(e.getMessage());
+    }
 }
 
 private int DivideByZero(int a, int b) {
