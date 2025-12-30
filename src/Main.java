@@ -60,6 +60,21 @@ void main() {
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
+
+    // Task 6
+    try {
+        System.out.println("1. Inside try block");
+
+        int result = 10 / 0;
+
+        System.out.println(result);
+
+    } catch (ArithmeticException e) {
+        System.out.println(e.getMessage());
+
+    } finally {
+        System.out.println("finally block executed");
+    }
 }
 
 private int DivideByZero(int a, int b) {
