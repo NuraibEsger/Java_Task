@@ -34,6 +34,16 @@ void main() {
     } catch(NumberFormatException e){
         System.out.println(e.getMessage());
     }
+
+    // Task 4
+    try{
+        int[] numbers = {1, 2, 3};
+
+        System.out.println(numbers[10]);
+    } catch(Exception e){
+        System.out.println(e.getMessage());
+        System.out.println(e.getClass().getName());
+    }
 }
 
 private int DivideByZero(int a, int b) {
