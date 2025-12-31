@@ -82,8 +82,20 @@ void main() {
     if (age < 0 || age > 120) {
         throw new RuntimeException("Age must be between 0 and 120");
     }
+
+    // Task 8
+    if (age < 18){
+        throw new InvalidAgeException("Age must be between 18 and 120");
+    }
 }
 
 private int DivideByZero(int a, int b) {
     return a / b;
+}
+
+
+private static class InvalidAgeException extends RuntimeException {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
 }
