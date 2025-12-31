@@ -99,3 +99,9 @@ private static class InvalidAgeException extends RuntimeException {
         super(message);
     }
 }
+
+// Task 9
+
+public void ExceptionMethod() throws ClassNotFoundException {
+    throw new ClassNotFoundException();
+}
