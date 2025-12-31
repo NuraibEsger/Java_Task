@@ -75,6 +75,13 @@ void main() {
     } finally {
         System.out.println("finally block executed");
     }
+
+    // Task 7
+    var age = sc.nextInt();
+
+    if (age < 0 || age > 120) {
+        throw new RuntimeException("Age must be between 0 and 120");
+    }
 }
 
 private int DivideByZero(int a, int b) {
