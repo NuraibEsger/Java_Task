@@ -87,6 +87,11 @@ void main() {
     if (age < 18){
         throw new InvalidAgeException("Age must be between 18 and 120");
     }
+
+    // Task 9
+    System.out.println("Program start");
+    method1();
+    System.out.println("Program end");
 }
 
 private int DivideByZero(int a, int b) {
@@ -100,8 +105,23 @@ private static class InvalidAgeException extends RuntimeException {
     }
 }
 
-// Task 9
+static void method1(){
+    try{
+        method2();
+    } catch(RuntimeException e){
+        System.out.println(e.getMessage());
+    }
+}
 
+static void method2() {
+    method3();
+}
+
+static void method3() {
+    throw new RuntimeException("Error occurred in method3");
+}
+
+// Task 10
 public void ExceptionMethod() throws ClassNotFoundException {
     throw new ClassNotFoundException();
 }
