@@ -9,5 +9,11 @@ public class Main {
         // Task 2
         List<String> names = List.of("java","stream","api");
         names.stream().map(String::toUpperCase).forEach(System.out::println);
+
+        // Task 3
+        List<Integer> nums =  List.of(5, 10, 15, 20);
+        nums.stream().filter(x -> x > 10).forEach(System.out::println);
+
+
     }
 }
