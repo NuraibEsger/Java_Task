@@ -21,5 +21,10 @@ public class Main {
         // Task 4
         List<String> data = Arrays.asList("A",null,"B",null,"C");
         data.stream().filter(Objects::nonNull).forEach(System.out::print);
+        System.out.println();
+
+        // Task 5
+        List<String> names2 = List.of("Bob","Alice","Andrew","Charlie");
+        names2.stream().filter(x -> x.startsWith("A")).findFirst().ifPresent(System.out::print);
     }
 }
