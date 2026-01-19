@@ -1,189 +1,58 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() throws CustomException {
-    // Task 1
-    Scanner sc = new Scanner(System.in);
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-    int num1 = sc.nextInt();
-    int num2 = sc.nextInt();
+public class Main {
+    public static void main(String[] args) {
+        // Task 1
+        List<Integer> list = List.of(1, 2, 3, 4, 5, 6);
+        list.stream().filter(x -> x % 2 == 0).forEach(System.out::print);
+        System.out.println();
 
-    try{
-        int res = DivideByZero(num1,num2);
-        System.out.println(res);
-    } catch(ArithmeticException e){
-        System.out.println(e.getMessage());
-    }
+        // Task 2
+        List<String> names = List.of("java","stream","api");
+        names.stream().map(String::toUpperCase).forEach(System.out::print);
+        System.out.println();
 
-    // Task 2
+        // Task 3
+        List<Integer> nums =  List.of(5, 10, 15, 20);
+        nums.stream().filter(x -> x > 10).forEach(System.out::print);
 
-    int[] arr = {1, 2, 3, 4, 5};
+        // Task 4
+        List<String> data = Arrays.asList("A",null,"B",null,"C");
+        data.stream().filter(Objects::nonNull).forEach(System.out::print);
+        System.out.println();
 
-    try{
-        for(int i = 0; i <= arr.length; i++){
-            System.out.println(arr[i]);
-        }
-    } catch(ArrayIndexOutOfBoundsException e){
-        System.out.println(e.getMessage());
-    }
+        // Task 5
+        List<String> names2 = List.of("Bob","Alice","Andrew","Charlie");
+        names2.stream().filter(x -> x.startsWith("A")).findFirst().ifPresent(System.out::print);
+        System.out.println();
 
-    // Task 3
-    String s1 = "12";
-    try{
-        var a = Integer.parseInt(s1);
-        System.out.println(a);
-    } catch(NumberFormatException e){
-        System.out.println(e.getMessage());
-    }
+        // Task 6
+        List<Integer> numbers = List.of(3,1,4,2);
+        numbers.stream().map(x -> Math.pow(x, 2)).sorted().forEach(System.out::println);
 
-    // Task 4
-    try{
-        int[] numbers = {1, 2, 3};
+        // Task 7
+        List<Integer> numbersForSum = List.of(1, 2, 3, 4, 5, 6);
+        int sum = numbersForSum.stream().filter(x -> x % 2 == 0).mapToInt(Integer::intValue).sum();
+        System.out.println(sum);
 
-        System.out.println(numbers[10]);
-    } catch(Exception e){
-        System.out.println(e.getMessage());
-        System.out.println(e.getClass().getName());
-    }
+        // Task 8
+        List<String> words = List.of("apple","banana","kiwi");
+        Map<String, Integer> mappedWords = words
+                .stream()
+                .collect(Collectors.toMap(word -> word, String::length));
+        System.out.println(mappedWords);
 
-    // Task 5
-    try {
-        int a = 10;
-        int b = 0;
+        // Task 9
+        List<Integer> maxNumbers = List.of(10,50,30);
+        maxNumbers.stream().max(Integer::compareTo).ifPresent(System.out::println);
 
-        String text = null;
-        System.out.println(text.length());
-
-    } catch (ArithmeticException e) {
-        System.out.println(e.getMessage());
-    } catch (NullPointerException e) {
-        System.out.println(e.getMessage());
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-    }
-
-    // Task 6
-    try {
-        System.out.println("1. Inside try block");
-
-        int result = 10 / 0;
-
-        System.out.println(result);
-
-    } catch (ArithmeticException e) {
-        System.out.println(e.getMessage());
-
-    } finally {
-        System.out.println("finally block executed");
-    }
-
-    // Task 7
-    var age = sc.nextInt();
-
-    if (age < 0 || age > 120) {
-        throw new RuntimeException("Age must be between 0 and 120");
-    }
-
-    // Task 8
-    if (age < 18){
-        throw new InvalidAgeException("Age must be between 18 and 120");
-    }
-
-    // Task 9
-    System.out.println("Program start");
-    method1();
-    System.out.println("Program end");
-
-    // Task 11
-    BankAccount bankAccount = new BankAccount(420, 400);
-    if (bankAccount.withdraw > bankAccount.balance) {
-        throw new CustomException("withdraw is more than balance");
-    }
-
-    try {
-        processWithdrawal(5000);
-
-    } catch (Exception e) {
-        System.out.println("=== EXCEPTION LOGGING ===");
-
-        System.out.println("1. MESSAGE: " + e.getMessage());
-
-        System.out.println("2. CAUSE: " + e.getCause());
-
-        System.out.println("3. STACK TRACE: ");
-        e.printStackTrace();
-    }
-}
-
-private int DivideByZero(int a, int b) {
-    return a / b;
-}
-
-
-private static class InvalidAgeException extends RuntimeException {
-    public InvalidAgeException(String message) {
-        super(message);
-    }
-}
-
-static void method1(){
-    try{
-        method2();
-    } catch(RuntimeException e){
-        System.out.println(e.getMessage());
-    }
-}
-
-static void method2() {
-    method3();
-}
-
-static void method3() {
-    throw new RuntimeException("Error occurred in method3");
-}
-
-// Task 10
-public void ExceptionMethod() throws ClassNotFoundException {
-    throw new ClassNotFoundException();
-}
-
-// Task 11
-static class BankAccount  {
-    Integer withdraw;
-    Integer balance;
-    BankAccount(Integer withdraw, Integer balance) {
-        this.withdraw = withdraw;
-        this.balance = balance;
-    }
-}
-
-static class InvalidPinException extends Exception {
-    public InvalidPinException(String message) {
-        super(message);
-    }
-}
-
-static class InsufficientBalanceException extends Exception {
-    public InsufficientBalanceException(String message) {
-        super(message);
-    }
-}
-
-static class DailyLimitExceededException extends Exception {
-    public DailyLimitExceededException(String message, Throwable cause) {
-        super(message, cause);
-    }
-}
-
-static void processWithdrawal(int amount)
-        throws InvalidPinException, InsufficientBalanceException, DailyLimitExceededException {
-
-    int dailyLimit = 2000;
-
-    if (amount > dailyLimit) {
-        // Simulating a deeper system error to serve as the 'Cause'
-        NullPointerException rootCause = new NullPointerException("Simulated internal system error");
-
-        // Throw the custom exception, attaching the root cause
-        throw new DailyLimitExceededException("You cannot withdraw more than " + dailyLimit, rootCause);
+        // Task 10
+        List<String> groupWords = List.of("a","bb","ccc","dd");
+        Map<Integer, List<String>> groupedByLength = groupWords
+                .stream()
+                .collect(Collectors.groupingBy(String::length));
+        System.out.println(groupedByLength);
     }
 }
