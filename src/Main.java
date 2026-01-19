@@ -26,5 +26,11 @@ public class Main {
         // Task 5
         List<String> names2 = List.of("Bob","Alice","Andrew","Charlie");
         names2.stream().filter(x -> x.startsWith("A")).findFirst().ifPresent(System.out::print);
+        System.out.println();
+
+        // Task 6
+        List<Integer> numbers = List.of(3,1,4,2);
+        numbers.stream().map(x -> Math.pow(x, 2)).sorted().forEach(System.out::println);
+        System.out.println();
     }
 }
