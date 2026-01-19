@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,6 +32,10 @@ public class Main {
         // Task 6
         List<Integer> numbers = List.of(3,1,4,2);
         numbers.stream().map(x -> Math.pow(x, 2)).sorted().forEach(System.out::println);
-        System.out.println();
+
+        // Task 7
+        List<Integer> numbersForSum = List.of(1, 2, 3, 4, 5, 6);
+        int sum = numbersForSum.stream().filter(x -> x % 2 == 0).mapToInt(Integer::intValue).sum();
+        System.out.println(sum);
     }
 }
