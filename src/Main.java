@@ -54,5 +54,21 @@ public class Main {
                 .stream()
                 .collect(Collectors.groupingBy(String::length));
         System.out.println(groupedByLength);
+
+        // Task 11
+        List<Integer> partitionNumbers = List.of(1,2,3,4,5);
+        Map<Boolean, List<Integer>> partitionedMap = partitionNumbers
+                .stream().collect(Collectors.partitioningBy(x -> x % 2 == 0));
+
+        System.out.println("Even numbers (true) " + partitionedMap.get(true));
+        System.out.println("Odd numbers (false) " + partitionedMap.get(false));
+
+        // Task 12
+        List<Integer> duplicatedNumbers = List.of(1,2,3,2,4,3,5);
+        Set<Integer> items = new HashSet<>();
+        Set<Integer> duplicates = duplicatedNumbers.stream()
+                .filter(x -> !items.add(x))
+                .collect(Collectors.toSet());
+        System.out.println("Duplicates: " + duplicates);
     }
 }
