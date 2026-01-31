@@ -70,5 +70,36 @@ public class Main {
                 .filter(x -> !items.add(x))
                 .collect(Collectors.toSet());
         System.out.println("Duplicates: " + duplicates);
+
+        // Task 13
+        List<List<String>> listOfLists = List.of(
+                List.of("A", "B"),
+                List.of("C", "D")
+        );
+
+        List<String> flatList = listOfLists.stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+
+        System.out.println(flatList);
+
+        // Task 14
+        List<Employee> employees = List.of(
+                new Employee("Alice", 50000),
+                new Employee("Bob", 60000),
+                new Employee("Charlie", 40000)
+        );
+
+        List<Employee> sortedEmployees = employees.stream()
+                .sorted(Comparator.comparingDouble(Employee::getSalary))
+                .toList();
+
+        System.out.println("Sorted by Salary: " + sortedEmployees);
+
+        // Task 15
+        double averageSalary = employees.stream()
+                .collect(Collectors.averagingDouble(Employee::getSalary));
+
+        System.out.println("Average Salary: " + averageSalary);
     }
 }
